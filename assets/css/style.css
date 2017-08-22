@@ -1,0 +1,36 @@
+#instructions{
+	width: 30%;
+	position: relative;
+	left:25px;
+}
+
+.title{
+	position:relative;
+	left: 25px;
+}
+
+.losses{
+	position:relative;
+	left: 25px;
+}
+
+.randomNumber{
+	position:relative;
+	left: 25px;
+}
+
+.wins{
+	position:relative;
+	left: 25px;
+}
+
+.totalScore{
+	position:relative;
+	left: 25px;
+}
+
+.container-balls{
+	position: relative;
+	right: -15px;
+	width:50%;
+}
