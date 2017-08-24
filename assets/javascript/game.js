@@ -7,250 +7,144 @@ var losses = 0;
 
 window.onload = function(){
 
-	$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
-
-	var randomNumber = Math.ceil(Math.random() * 100);
-	
-	$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
-	
-	var soccerNumber = Math.ceil(Math.random() * 15);
-	console.log(soccerNumber);
-	
-	var footballNumber = Math.ceil(Math.random() * 15);
-	console.log(footballNumber);
-	
-	var basketballNumber = Math.ceil(Math.random() * 15);
-	console.log(basketballNumber);
-	
-	var baseballNumber = Math.ceil(Math.random() * 15);
-	console.log(baseballNumber);
+	reset();
 	
 	
-		$("#soccer").on("click", function() {
-			if(rule === true){
+	$("#soccer").on("click", function() {
+		if(rule === true){
 			globalNumber = soccerNumber;
 			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
 			rule = false;	
-	 		
-	 		}
-	 		
-	 		else {
-
-				globalNumber = globalNumber + soccerNumber;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				
-				if(globalNumber === randomNumber){
-				wins++;
-				randomNumber = Math.ceil(Math.random() * 100);
-				$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
-				$(".wins").html("<h4>Wins: </h4>" + wins);
-				globalNumber = 0;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				soccerNumber = Math.ceil(Math.random() * 15);
-				console.log(soccerNumber);
-
-				footballNumber = Math.ceil(Math.random() * 15);
-				console.log(footballNumber);
-	
-				basketballNumber = Math.ceil(Math.random() * 15);
-				console.log(basketballNumber);
-	
-				baseballNumber = Math.ceil(Math.random() * 15);
-				console.log(baseballNumber);
-
-				} 
-				else if(globalNumber > randomNumber){
-					losses++;
-					$(".losses").html("<h4>Losses: </h4>" + losses);
-					randomNumber = Math.ceil(Math.random() * 100);
-					$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
-					globalNumber = 0;
-					$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-					soccerNumber = Math.ceil(Math.random() * 15);
-					console.log(soccerNumber);
-
-					footballNumber = Math.ceil(Math.random() * 15);
-					console.log(footballNumber);
-	
-					basketballNumber = Math.ceil(Math.random() * 15);
-					console.log(basketballNumber);
-	
-					baseballNumber = Math.ceil(Math.random() * 15);
-					console.log(baseballNumber);
-				}
-
-			}	
-
-		});
+			
+		}
 		
-		$("#football").on("click", function() {
-			if(rule === true){
+		else {
+
+			globalNumber = globalNumber + soccerNumber;
+			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
+			//If I want to put the number next to the word 
+			//I have to make a new division on the html file and use bootstrap to fix the div
+			if(globalNumber === randomNumber){
+				wins++;
+				$(".wins").html("<h4>Wins: </h4>" + wins);
+				reset();
+			} 
+			else if(globalNumber > randomNumber){
+				losses++;
+				$(".losses").html("<h4>Losses: </h4>" + losses);
+				reset();
+			}
+
+		}	
+
+	});
+	
+	$("#football").on("click", function() {
+		if(rule === true){
 			globalNumber = footballNumber;
 			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
 			rule = false;
-	
-	 		} 
-	 		else {
+			
+		} 
+		else {
 
-				globalNumber = globalNumber + footballNumber;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				
-				if(globalNumber === randomNumber){
+			globalNumber = globalNumber + footballNumber;
+			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
+			
+			if(globalNumber === randomNumber){
 				wins++;
-				randomNumber = Math.ceil(Math.random() * 100);
-				$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
 				$(".wins").html("<h4>Wins: </h4>" + wins);
-				globalNumber = 0;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				soccerNumber = Math.ceil(Math.random() * 15);
-				console.log(soccerNumber);
+				reset();
 
-				footballNumber = Math.ceil(Math.random() * 15);
-				console.log(footballNumber);
-	
-				basketballNumber = Math.ceil(Math.random() * 15);
-				console.log(basketballNumber);
-	
-				baseballNumber = Math.ceil(Math.random() * 15);
-				console.log(baseballNumber);
 
-				} 
-				else if(globalNumber > randomNumber){
-					losses++;
-					$(".losses").html("<h4>Losses: </h4>" + losses);
-					randomNumber = Math.ceil(Math.random() * 100);
-					$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
-					globalNumber = 0;
-					$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-					soccerNumber = Math.ceil(Math.random() * 15);
-					console.log(soccerNumber);
+			} 
+			else if(globalNumber > randomNumber){
+				losses++;
+				$(".losses").html("<h4>Losses: </h4>" + losses);
+				reset();
+			}
 
-					footballNumber = Math.ceil(Math.random() * 15);
-					console.log(footballNumber);
-	
-					basketballNumber = Math.ceil(Math.random() * 15);
-					console.log(basketballNumber);
-	
-					baseballNumber = Math.ceil(Math.random() * 15);
-					console.log(baseballNumber);
-				}
+		}	
+	});
 
-			}	
-		});
-
-		$("#basketball").on("click", function() {
-			if(rule === true){
+	$("#basketball").on("click", function() {
+		if(rule === true){
 			globalNumber = basketballNumber;
 			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
 			rule = false;
-	
-	 		} 
-	 		else {
+			
+		} 
+		else {
 
-				globalNumber = globalNumber + basketballNumber;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				
-				if(globalNumber === randomNumber){
+			globalNumber = globalNumber + basketballNumber;
+			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
+			
+			if(globalNumber === randomNumber){
 				wins++;
-				randomNumber = Math.ceil(Math.random() * 100);
-				$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
 				$(".wins").html("<h4>Wins: </h4>" + wins);
-				globalNumber = 0;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				soccerNumber = Math.ceil(Math.random() * 15);
-				console.log(soccerNumber);
+				reset();
+			} 
+			else if(globalNumber > randomNumber){
+				losses++;
+				$(".losses").html("<h4>Losses: </h4>" + losses);
+				reset();
 
-				footballNumber = Math.ceil(Math.random() * 15);
-				console.log(footballNumber);
-	
-				basketballNumber = Math.ceil(Math.random() * 15);
-				console.log(basketballNumber);
-	
-				baseballNumber = Math.ceil(Math.random() * 15);
-				console.log(baseballNumber);
+			}
 
-				} 
-				else if(globalNumber > randomNumber){
-					losses++;
-					$(".losses").html("<h4>Losses: </h4>" + losses);
-					randomNumber = Math.ceil(Math.random() * 100);
-					$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
-					globalNumber = 0;
-					$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-					soccerNumber = Math.ceil(Math.random() * 15);
-					console.log(soccerNumber);
+		}	
+	});
 
-					footballNumber = Math.ceil(Math.random() * 15);
-					console.log(footballNumber);
-	
-					basketballNumber = Math.ceil(Math.random() * 15);
-					console.log(basketballNumber);
-	
-					baseballNumber = Math.ceil(Math.random() * 15);
-					console.log(baseballNumber);
-				}
-
-			}	
-		});
-
-		$("#baseball").on("click", function() {
-			if(rule === true){
+	$("#baseball").on("click", function() {
+		if(rule === true){
 			globalNumber = baseballNumber;
 			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
 			rule = false;
-	
-	 		} 
-	 		else {
+			
+		} 
+		else {
 
-				globalNumber = globalNumber + baseballNumber;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				
-				if(globalNumber === randomNumber){
+			globalNumber = globalNumber + baseballNumber;
+			$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
+			
+			if(globalNumber === randomNumber){
 				wins++;
-				randomNumber = Math.ceil(Math.random() * 100);
-				$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
 				$(".wins").html("<h4>Wins: </h4>" + wins);
-				globalNumber = 0;
-				$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-				soccerNumber = Math.ceil(Math.random() * 15);
-				console.log(soccerNumber);
+				reset();
 
-				footballNumber = Math.ceil(Math.random() * 15);
-				console.log(footballNumber);
+			} 
+			else if(globalNumber > randomNumber){
+				losses++;
+				$(".losses").html("<h4>Losses: </h4>" + losses);
+				reset();
+			}
+
+		}	
+	});
+
+}
+
+function reset(){
+		
+	randomNumber = Math.ceil(Math.random() * 100);
 	
-				basketballNumber = Math.ceil(Math.random() * 15);
-				console.log(basketballNumber);
+	$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
 	
-				baseballNumber = Math.ceil(Math.random() * 15);
-				console.log(baseballNumber);
-
-				} 
-				else if(globalNumber > randomNumber){
-					losses++;
-					$(".losses").html("<h4>Losses: </h4>" + losses);
-					randomNumber = Math.ceil(Math.random() * 100);
-					$(".randomNumber").html("<h3>Random Number: </h3>" + randomNumber);
-					globalNumber = 0;
-					$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
-					soccerNumber = Math.ceil(Math.random() * 15);
-					console.log(soccerNumber);
-					
-					footballNumber = Math.ceil(Math.random() * 15);
-					console.log(footballNumber);
+	globalNumber = 0;
 	
-					basketballNumber = Math.ceil(Math.random() * 15);
-					console.log(basketballNumber);
-	
-					baseballNumber = Math.ceil(Math.random() * 15);
-					console.log(baseballNumber);
-				}
+	$(".totalScore").html("<h3>Total Score: </h3>" + globalNumber);
 
-			}	
-		});
-
-	}
-
-
+	soccerNumber = Math.ceil(Math.random() * 15);
+	console.log(soccerNumber);
+				
+	footballNumber = Math.ceil(Math.random() * 15);
+	console.log(footballNumber);
+				
+	basketballNumber = Math.ceil(Math.random() * 15);
+	console.log(basketballNumber);
+				
+	baseballNumber = Math.ceil(Math.random() * 15);
+	console.log(baseballNumber);
+}
 
 
 
